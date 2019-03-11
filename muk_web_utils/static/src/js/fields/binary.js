@@ -36,18 +36,18 @@ fields.FieldBinaryFile.include({
         }).done(function(result) {
         	this.max_upload_size = result.max_upload_size * 1024 * 1024;
         }.bind(this));
-		return this._super.apply(this, arguments);
+		return $.when(this._super.apply(this, arguments), def);
     },
-});
-
-fields.FieldBinaryImage.include({
-	willStart: function () {
-		var def = this._rpc({
-            route: '/params/muk_web_utils.binary_max_size',
-        }).done(function(result) {
-        	this.max_upload_size = result.max_upload_size * 1024 * 1024;
-        }.bind(this));
-		return this._super.apply(this, arguments);
+    _renderReadonly: function () {
+		this._super.apply(this, arguments);
+		var $wrapper = $('<div/>', {
+			class: "mk_field_binary_wrapper"
+		});
+		$wrapper.addClass(this.$el.attr('class'));
+		this.$el.removeClass("o_field_widget");
+		this.$el.removeClass("o_hidden");
+    	$wrapper.append(this.$el);
+    	this.setElement($wrapper);
     },
 });
 

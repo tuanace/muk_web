@@ -53,6 +53,10 @@ AppsMenu.include({
         this.$search_results = this.$(".mk_search_results");
         return this._super.apply(this, arguments);
     },
+    _onAppsMenuItemClicked: function (event) {
+    	this._super.apply(this, arguments);
+    	event.preventDefault();
+    },
     _findNames: function (memo, menu) {
         if (menu.action) {
             var key = menu.parent_id ? menu.parent_id[1] + "/" : "";
@@ -139,7 +143,7 @@ AppsMenu.include({
         core.bus.trigger("change_menu_section", app.menuID);
     },
     _onSearchResultsNavigate: function (event) {
-        if (this.$search_results.is(":empty")) {
+        if (this.$search_results.html().trim() === "") {
             this._searchMenusSchedule();
             return;
         }
@@ -162,7 +166,9 @@ AppsMenu.include({
 	            offset++;
 	            break;
 	        default:
-	            this._searchMenusSchedule();
+	        	if (key.length === 1 || key === "Backspace") {
+	        		this._searchMenusSchedule();
+                }
             return;
         }
         if (offset < 0) {

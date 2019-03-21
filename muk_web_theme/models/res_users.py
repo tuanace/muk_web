@@ -29,7 +29,7 @@ class ResUsers(models.Model):
     
     @api.model
     def _default_sidebar_type(self):
-        return self.env.user.company_id.default_sidebar_preference or 'small'
+        return self.env.user.company_id.default_sidebar_preference or 'large'
     
     @api.model
     def _default_chatter_position(self):
@@ -47,8 +47,6 @@ class ResUsers(models.Model):
         ], 
         required=True,
         string="Sidebar Type",
-        default='large',
-        required=True)
         default=lambda self: self._default_sidebar_type())
     
     chatter_position = fields.Selection(

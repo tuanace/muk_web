@@ -94,7 +94,7 @@ class ResConfigSettings(models.TransientModel):
             variables = [
                 {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#706775"},
                 {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#00A09D"},
-                {'name': 'mk-appbar-background', 'value': self.theme_color_appbar or "#706775"},
+                {'name': 'mk-appbar-background', 'value': self.theme_color_appbar_background or "#706775"},
                 {'name': 'mk-apps-color', 'value': self.theme_color_menu or "#f8f9fa"},
                 {'name': 'mk-appbar-color', 'value': self.theme_color_appbar_color or "#dee2e6"},
             ]

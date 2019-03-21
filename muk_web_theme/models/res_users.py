@@ -47,7 +47,7 @@ class ResUsers(models.Model):
         ], 
         required=True,
         string="Sidebar Type",
-        default=lambda self: self._default_sidebar_type())
+        default='large')
     
     chatter_position = fields.Selection(
         selection=[
@@ -56,7 +56,7 @@ class ResUsers(models.Model):
         ], 
         required=True,
         string="Chatter Position", 
-        default=lambda self: self._default_chatter_position())
+            default='sided')
 
     def __init__(self, pool, cr):
         init_res = super(ResUsers, self).__init__(pool, cr)

@@ -56,7 +56,7 @@ class ResUsers(models.Model):
         ], 
         required=True,
         string="Chatter Position", 
-            default='sided')
+        default='sided')
 
     def __init__(self, pool, cr):
         init_res = super(ResUsers, self).__init__(pool, cr)

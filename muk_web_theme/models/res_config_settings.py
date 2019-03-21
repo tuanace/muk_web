@@ -60,9 +60,9 @@ class ResConfigSettings(models.TransientModel):
         appbar_changed = self.theme_color_appbar != colors['mk-appbar-background']
         if(brand_changed or primary_changed or appbar_changed):
             variables = [
-                {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#243742"},
-                {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#5D8DA8"},
-                {'name': 'mk-appbar-background', 'value': self.theme_color_appbar or "#000000"},
+                {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#706775"},
+                {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#00A09D"},
+                {'name': 'mk-appbar-background', 'value': self.theme_color_appbar or "#706775"},
             ]
             self.env['muk_utils.scss_editor'].replace_values(
                 SCSS_URL, XML_ID, variables

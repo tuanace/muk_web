@@ -17,26 +17,22 @@
 *
 **********************************************************************************/
 
-//----------------------------------------------------------
-// Color Palette
-//----------------------------------------------------------
+odoo.define('muk_web_searchpanel.KanbanRenderer', function (require) {
+"use strict";
 
-$success: #28a745;
-$info: #17a2b8;
-$warning: #ffc107;
-$danger: #dc3545;
-$light: #f8f9fa;
-$dark: #343a40;
+var core = require('web.core');
+var config = require('web.config');
+var session = require('web.session');
 
-$white: #ffffff;
-$black: #000000;
+var KanbanRenderer = require('web.KanbanRenderer');
 
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
+var _t = core._t;
+var QWeb = core.qweb;
+
+KanbanRenderer.include({
+	render: function () {
+        return this._render();
+    },
+});
+
+});
